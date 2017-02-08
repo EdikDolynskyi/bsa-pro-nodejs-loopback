@@ -1,0 +1,13 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "bsa_nodejs": {
+    "name": "bsa_nodejs",
+    "connector": "mongodb",
+    "host": "localhost",
+    "port": 27017,
+    "database": "bsa_nodejs"
+  }
+}

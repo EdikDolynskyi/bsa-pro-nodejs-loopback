@@ -35,12 +35,12 @@ function renderTask(task = {}){
 	var $taskContainer = document.createElement('div');
 	$taskContainer.className = 'task-container';
 
-	if (task._id){
-		$taskContainer.id = task._id
+	if (task.id){
+		$taskContainer.id = task.id
 
 		var $taskId = document.createElement('a');
-		$taskId.innerText = task._id;
-		$taskId.href = '/task/' + task._id;
+		$taskId.innerText = task.id;
+		$taskId.href = '/tasks/' + task.id;
 		$taskContainer.appendChild($taskId);
 	}
 

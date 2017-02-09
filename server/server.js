@@ -2,8 +2,22 @@
 
 var loopback = require('loopback');
 var boot = require('loopback-boot');
+var path = require('path');
+var socket = require(path.join(__dirname, '../common/services/Socket'));
 
 var app = module.exports = loopback();
+
+
+// view engine setup
+app.set('views', path.join(__dirname, '../client/views'));
+console.log(__dirname)
+app.set('view engine', 'pug');
+
+app.use(loopback.static(path.join(__dirname, '/../client/public')));
+
+app.get('/', (req, res, next) => {
+  res.render('tasks');
+});
 
 app.start = function() {
   // start the web server
@@ -25,5 +39,5 @@ boot(app, __dirname, function(err) {
 
   // start the server if `$ node server.js`
   if (require.main === module)
-    app.start();
+    socket.listen(app.start());
 });
